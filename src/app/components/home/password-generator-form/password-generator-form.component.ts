@@ -32,11 +32,7 @@ export class PasswordGeneratorFormComponent {
   onSubmit() {
     if (this.passwordForm.valid) {
       const submittedStrength = this.passwordForm.value.strength;
-      console.log('Submitted Strength:', submittedStrength);
-      // You can perform further actions with the submitted data
-
-      console.log(this.generatePassword(submittedStrength));
-
+      this.generatePassword(submittedStrength);
     }
   }
 
@@ -78,8 +74,4 @@ export class PasswordGeneratorFormComponent {
       this.model.strength = this.passwordForm.get('strength')?.value;
     }
 
-    calculateThumbColor(value: PasswordForm): string {
-      const hue = value.strength! * 60; // Adjust this factor for a better color gradient
-      return `hsl(${hue}, 100%, 50%)`;
-    }
 }
